@@ -1,4 +1,4 @@
-package entities;
+package com.apirestaurant.apirestaurant.entities;
 
 import java.util.List;
 

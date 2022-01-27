@@ -1,4 +1,4 @@
-package responses;
+package com.apirestaurant.apirestaurant.responses;
 
 import java.io.Serializable;
 

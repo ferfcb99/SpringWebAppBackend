@@ -1,10 +1,10 @@
-package exceptions;
+package com.apirestaurant.apirestaurant.exceptions;
 
 import java.util.Arrays;
 
 import org.springframework.http.HttpStatus;
 
-import dtos.ErrorDto;
+import com.apirestaurant.apirestaurant.dtos.ErrorDto;
 
 public class InternalServerErrorException extends RestaurantException{
 	

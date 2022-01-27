@@ -1,4 +1,4 @@
-package jsons;
+package com.apirestaurant.apirestaurant.jsons;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

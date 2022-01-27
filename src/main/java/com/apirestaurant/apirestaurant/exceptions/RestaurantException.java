@@ -1,8 +1,8 @@
-package exceptions;
+package com.apirestaurant.apirestaurant.exceptions;
 
 import java.util.List;
 
-import dtos.ErrorDto;
+import com.apirestaurant.apirestaurant.dtos.ErrorDto;
 
 import java.util.ArrayList;
 

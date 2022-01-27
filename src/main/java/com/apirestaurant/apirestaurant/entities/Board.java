@@ -1,4 +1,4 @@
-package entities;
+package com.apirestaurant.apirestaurant.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

@@ -1,4 +1,4 @@
-package dtos;
+package com.apirestaurant.apirestaurant.dtos;
 
 import java.io.Serializable;
 

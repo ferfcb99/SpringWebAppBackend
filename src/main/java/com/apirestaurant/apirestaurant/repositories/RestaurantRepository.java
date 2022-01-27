@@ -1,4 +1,4 @@
-package repositories;
+package com.apirestaurant.apirestaurant.repositories;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import entities.Restaurant;
+import com.apirestaurant.apirestaurant.entities.Restaurant;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long>{
 	

@@ -1,4 +1,4 @@
-package jsons;
+package com.apirestaurant.apirestaurant.jsons;
 
 import java.util.Date; // 24-01-2022T02:01:45:000
 

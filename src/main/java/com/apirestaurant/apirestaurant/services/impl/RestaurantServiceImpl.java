@@ -1,4 +1,4 @@
-package services.impl;
+package com.apirestaurant.apirestaurant.services.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,12 +7,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entities.Restaurant;
-import exceptions.RestaurantException;
-import javassist.NotFoundException;
-import jsons.RestaurantRest;
-import repositories.RestaurantRepository;
-import services.RestaurantService;
+import com.apirestaurant.apirestaurant.entities.Restaurant;
+import com.apirestaurant.apirestaurant.exceptions.RestaurantException;
+import com.apirestaurant.apirestaurant.jsons.RestaurantRest;
+import com.apirestaurant.apirestaurant.repositories.RestaurantRepository;
+import com.apirestaurant.apirestaurant.services.RestaurantService;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {

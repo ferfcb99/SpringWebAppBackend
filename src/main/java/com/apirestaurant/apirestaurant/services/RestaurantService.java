@@ -1,9 +1,9 @@
-package services;
+package com.apirestaurant.apirestaurant.services;
 
 import java.util.List;
 
-import exceptions.RestaurantException;
-import jsons.RestaurantRest;
+import com.apirestaurant.apirestaurant.exceptions.RestaurantException;
+import com.apirestaurant.apirestaurant.jsons.RestaurantRest;
 
 public interface RestaurantService {
 	

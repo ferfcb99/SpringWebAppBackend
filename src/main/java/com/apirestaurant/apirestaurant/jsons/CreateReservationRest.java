@@ -1,4 +1,4 @@
-package jsons;
+package com.apirestaurant.apirestaurant.jsons;
 
 import java.util.Date;
 
