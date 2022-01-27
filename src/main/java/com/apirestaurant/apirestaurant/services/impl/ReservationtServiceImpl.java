@@ -32,6 +32,9 @@ public class ReservationtServiceImpl implements ReservationService{
 	
 	public static final ModelMapper modelMapper = new ModelMapper();
 	
+	@Autowired
+	ModelMapper m;
+	
 
 	public ReservationRest getReservation(Long id) throws RestaurantException {
 		try {
