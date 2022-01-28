@@ -4,8 +4,12 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.apirestaurant.apirestaurant.entities.Reservation;
+import com.apirestaurant.apirestaurant.entities.Restaurant;
+import com.apirestaurant.apirestaurant.entities.Turn;
+import com.apirestaurant.apirestaurant.exceptions.InternalServerErrorException;
 import com.apirestaurant.apirestaurant.exceptions.RestaurantException;
 import com.apirestaurant.apirestaurant.jsons.CreateReservationRest;
 import com.apirestaurant.apirestaurant.jsons.ReservationRest;
@@ -16,6 +20,8 @@ import com.apirestaurant.apirestaurant.services.ReservationService;
 
 import javassist.NotFoundException;
 
+
+@Service
 public class ReservationtServiceImpl implements ReservationService{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationtServiceImpl.class);
@@ -31,9 +37,6 @@ public class ReservationtServiceImpl implements ReservationService{
 	
 	
 	public static final ModelMapper modelMapper = new ModelMapper();
-	
-	@Autowired
-	ModelMapper m;
 	
 
 	public ReservationRest getReservation(Long id) throws RestaurantException {
@@ -56,8 +59,56 @@ public class ReservationtServiceImpl implements ReservationService{
 	}
 
 	public String createReservation(CreateReservationRest createReservationRest) throws RestaurantException {
-		// TODO Auto-generated method stub
-		return null;
+		// reparar el orElse
+		final Restaurant restaurantId = restaurantRepository.findById(createReservationRest.getRestaurantId()).orElse(null);
+		
+		final Turn turnId = turnRepository.findById(createReservationRest.getTurnId()).orElse(null);
+		
+		// idRestaurant + Create reservation
+		
+		String locator = generateLocator(restaurantId, createReservationRest);
+		
+		final Reservation reservation = new Reservation();
+		
+		reservation.setLocator(locator);
+		reservation.setPerson(createReservationRest.getPerson());
+		reservation.setDate(createReservationRest.getDate());
+		reservation.setRestaurant(restaurantId);
+		reservation.setTurn(turnId.getName());
+		
+		try{
+			reservationRepository.save(reservation);
+		}catch(final Exception e) {
+			LOGGER.error("INTERNAL_SERVER_ERROR", e);
+			throw new InternalServerErrorException("INTERNAL_SERVER_ERROR", "INTERNAL_SERVER_ERROR");
+		}
+		
+		return locator;
+	}
+	
+	
+	private String generateLocator(Restaurant restaurantId, CreateReservationRest createResevationRest) throws RestaurantException{
+		return restaurantId.getName() + createResevationRest.getTurnId();
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

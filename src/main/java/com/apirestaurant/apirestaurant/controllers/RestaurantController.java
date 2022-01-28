@@ -27,6 +27,10 @@ public class RestaurantController {
 
 	// /restaurant/v1/restaurant/{restaurantId}
 	
+	// http://localhost:8084/restaurant/v1
+	
+	
+	// http://localhost:8084/restaurant/v1//restaurant/1
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/restaurant/{restaurantId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public RestaurantResponse<RestaurantRest> getRestaurantById(@PathVariable Long restaurantId)
@@ -36,6 +40,7 @@ public class RestaurantController {
 	}
 	
 	
+	// http://localhost:8084/restaurant/v1/restaurants
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/restaurants", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public RestaurantResponse<List<RestaurantRest>> getRestaurants() throws RestaurantException{
